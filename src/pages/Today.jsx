@@ -18,10 +18,10 @@ const Today = () => {
     return (
         <Main 
             title = "추천 음악"
-            description="오늘의 추천 음악입니다.">
+            description="오늘의 추천 플레이리스트입니다.">
             
             <section id='todayPage' className={todayPageClass}>
-                <h2>🥰 오늘의 추천 음악입니다.</h2>
+                <h2>🥰 오늘의 추천 플리입니다.</h2>
 
                 {todayText.map((today, key) => (
                     <div className='today__inner' key={key}>

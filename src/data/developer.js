@@ -64,5 +64,11 @@ export const developerText = [
         name: "백수골방",
         channelAddress: "https://www.youtube.com/@100soooo",
         channelId: "UCNR3K4HA6LyO9tz0oZoSJIA"
+    },
+    {
+        img: "https://yt3.googleusercontent.com/PbaPKSsXGaiWALfMJ5gJTQY9oIgGZXlAuNB-Z6pcXLczMc48kJTUOrKUXhV08-IVX7gYN076db8=s176-c-k-c0x00ffffff-no-rj",
+        name: "b myself, coolkids",
+        channelAddress: "https://www.youtube.com/@bmyselfcoolkids",
+        channelId: "UC3Mi_zFduPWhACXnDPFMEBQ"
     }
 ]

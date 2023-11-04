@@ -19,7 +19,7 @@ export const headerMenus = [
         src: "/"
     },
     {
-        title: "추천 음악",
+        title: "추천 플리",
         icon: <CiMoneyBill />,
         src: "/today"
     },
