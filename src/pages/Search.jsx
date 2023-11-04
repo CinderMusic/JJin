@@ -8,33 +8,33 @@ import { fetchFromAPI } from '../utils/api'
 const Search = () => {
     const { searchId } = useParams();
     const [ videos, setVideos ] = useState([]);
-    const [ nextPageToken, setNextPageToken] = useState(null);
-    const [ loading, setLoading ] = useState(true);
-
+    const [ nextPageToken, setNextPageToken ] = useState(null);
+    const [ loading, setLoading ] = useState(true); 
+    
     useEffect(() => {
         setVideos([]);
-        fetchVidoes(searchId);
+        fetchVideos(searchId);
         setLoading(true);
     }, [searchId]);
 
-    const fetchVidoes = (query, pageToken = '') => {
-        fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
+    const fetchVideos = (query, pageToken = '') => {
+        fetchFromAPI(`search?part=snippet&q=${query}&pageToken=${pageToken}`)
             .then((data) => {
                 setNextPageToken(data.nextPageToken);
-                setVideos((preVideos) => [...preVideos, ...data.items]);
+                setVideos((prevVideos) => [...prevVideos, ...data.items]);
                 setLoading(false);
             })
             .catch((error) => {
-                console.log('Error fetching data', error);
-                setLoading(false);
-            })
-    }
+                console.error('Error fetching data:', error);
+                setLoading(false); 
+            });
+    };
 
     const handleLoadMore = () => {
-        if(nextPageToken){
-            fetchVidoes(searchId, nextPageToken);
+        if (nextPageToken) {
+            fetchVideos(searchId, nextPageToken);
         }
-    }
+    };
 
     const searchPageClass = loading ? 'isLoading' : 'isLoaded';
 
@@ -48,7 +48,7 @@ const Search = () => {
                 <div className="video__inner search">
                     <VideoSearch videos={videos} />
                 </div>
-                <div className='video__more'>
+                <div className="video__more">
                     {nextPageToken && (
                         <button onClick={handleLoadMore}>더 보기</button>
                     )}
